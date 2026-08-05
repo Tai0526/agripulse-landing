@@ -114,7 +114,7 @@ export default function Phone() {
             </div>
             <div className="p-best">
               <MiniTrend />
-              <span>Best today: <strong>K365</strong> at Ndola Main</span>
+              <span>Best: <strong>K365</strong> at Ndola Main</span>
             </div>
           </div>
 

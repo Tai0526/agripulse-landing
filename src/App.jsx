@@ -123,6 +123,7 @@ const ROADMAP = [
     title: 'Check and compare prices',
     points: [
       'Daily prices for the crops you grow, trade or stock',
+      'Prices submitted by trained field agents inside each market, cross-checked before publishing',
       'Compare markets side by side: Lusaka, Kitwe, Ndola and Chipata to start',
       'Price history, so you know if today is a good day to sell',
       'Works on any smartphone. Nothing to install.',
@@ -136,6 +137,7 @@ const ROADMAP = [
       'Price alerts that tell you the moment your crop moves',
       'Watchlists for the crops, animals and markets you care about',
       'Prices delivered on WhatsApp and SMS, where you already chat',
+      'A profit estimator: project your earnings from your land size, crop and today’s prices',
       'More markets and crops, added where waitlist members are',
     ],
   },
@@ -152,9 +154,10 @@ const ROADMAP = [
     phase: 'The bigger picture',
     title: 'From checking prices to selling better',
     points: [
-      'Connect with buyers in other markets when you have stock to move',
-      'Transport options to get goods where prices are better',
-      'Cross-border prices for trade routes like Kasumbalesa',
+      'Know your real profit before you travel: transport costs factored in, so you can see that Lusaka pays K850 more after all costs',
+      'Sell direct: list your produce and deal with verified buyers in the app',
+      'Ratings and track records, so farmers and buyers can trade with new people safely',
+      'Cross-border prices and trade across the region: Zimbabwe, Malawi, Tanzania and routes like Kasumbalesa',
     ],
   },
 ]
@@ -327,7 +330,8 @@ export default function App() {
               still find prices by rumour, phone-a-friend, or showing up and hoping.
               The phones are already in every pocket. What's missing is the information.
               AgriPulse exists to close that gap, starting with something simple:
-              today's prices, in your hand, every day.
+              today's prices, in your hand, every day. Zambia first, then the region.
+              Know your market. Sell smarter.
             </p>
             <div className="stats-row">
               <div className="stat">
@@ -407,7 +411,11 @@ export default function App() {
             <div className="faq-list">
               <details>
                 <summary>Where do the prices come from?</summary>
-                <p>From the markets themselves, collected daily and cross-checked before publishing. Every price shows the market and when it was updated, so you can judge it yourself.</p>
+                <p>From trained field agents inside the markets, submitting prices through the trading day. Submissions are cross-checked before publishing, and every price shows its market and when it was updated, so you can judge it yourself.</p>
+              </details>
+              <details>
+                <summary>Can I earn money with AgriPulse?</summary>
+                <p>Yes. We are recruiting field agents in each market: people who know their market well, submit daily prices and build a track record on the platform. Join the waitlist with your town, then email us and say you want to be an agent.</p>
               </details>
               <details>
                 <summary>How much does it cost?</summary>
@@ -438,7 +446,7 @@ export default function App() {
         <div className="container footer-inner">
           <div>
             <a className="brand" href="#top"><span className="brand-mark"><LogoMark /></span> AgriPulse</a>
-            <p className="footer-tag">Daily crop and livestock prices for Zambia's farmers, traders and retailers.</p>
+            <p className="footer-tag">Know your market. Sell smarter. Daily crop and livestock prices for Zambia's farmers, traders and retailers.</p>
           </div>
           <div className="footer-links">
             <a href="#how">How it works</a>

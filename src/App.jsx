@@ -3,13 +3,12 @@ import { TICKER_ROW_1, TICKER_ROW_2, HERO_PRICES, SPARK } from './data.js'
 import { joinWaitlist } from './waitlist.js'
 import {
   LogoMark, IconLeaf, IconTruck, IconStore, IconEyeOff, IconSwings, IconRoute,
-  IconBell, IconChat, IconChart, IconNetwork, IconDatabase, IconCard,
 } from './Icons.jsx'
 
 function Change({ value }) {
   const cls = value > 0 ? 'up' : value < 0 ? 'down' : 'flat'
   const sign = value > 0 ? '+' : ''
-  return <span className={`change ${cls}`}>{value === 0 ? '—' : `${sign}${value.toFixed(1)}%`}</span>
+  return <span className={`change ${cls}`}>{`${sign}${value.toFixed(1)}%`}</span>
 }
 
 function Sparkline({ points }) {
@@ -55,7 +54,7 @@ function TickerRow({ items, reverse }) {
   )
 }
 
-function WaitlistForm({ compact }) {
+function WaitlistForm() {
   const [form, setForm] = useState({ name: '', phone: '', town: '', email: '' })
   const [status, setStatus] = useState('idle') // idle | sending | done | error
   const [message, setMessage] = useState('')
@@ -96,7 +95,7 @@ function WaitlistForm({ compact }) {
   }
 
   return (
-    <form className={`waitlist-form ${compact ? 'compact' : ''}`} onSubmit={submit}>
+    <form className="waitlist-form" onSubmit={submit}>
       <div className="form-grid">
         <label>
           <span>Your name</span>
@@ -108,7 +107,7 @@ function WaitlistForm({ compact }) {
         </label>
         <label>
           <span>Town / market</span>
-          <input type="text" placeholder="e.g. Lusaka — Soweto Market" value={form.town} onChange={set('town')} />
+          <input type="text" placeholder="e.g. Lusaka, Soweto Market" value={form.town} onChange={set('town')} />
         </label>
         <label>
           <span>Email <em>(optional)</em></span>
@@ -116,57 +115,51 @@ function WaitlistForm({ compact }) {
         </label>
       </div>
       <button className="btn btn-primary btn-lg" type="submit" disabled={status === 'sending'}>
-        {status === 'sending' ? 'Joining…' : 'Join the waitlist — it’s free'}
+        {status === 'sending' ? 'Joining…' : 'Join the waitlist, it’s free'}
       </button>
       {status === 'error' && <p className="form-error" role="alert">{message}</p>}
-      <p className="form-note">Free during early access. No spam — we only message you about AgriPulse.</p>
+      <p className="form-note">Free during early access. No spam. We only message you about AgriPulse.</p>
     </form>
   )
 }
 
 const ROADMAP = [
   {
-    phase: 'Phase 1',
-    tag: 'Now — 2026',
-    title: 'Validate and launch',
+    phase: 'At launch',
+    title: 'Check and compare prices',
     points: [
-      'Field research completed with farmers, traders and retailers across market roles',
-      'Waitlist live; onboarding early users market by market',
-      'Daily price collection in the first hub markets — Lusaka, Kitwe, Ndola, Chipata',
-      'Web app: daily prices, market comparison, price history',
+      'Daily prices for the crops you grow, trade or stock',
+      'Compare markets side by side: Lusaka, Kitwe, Ndola and Chipata to start',
+      'Price history, so you know if today is a good day to sell',
+      'Works on any smartphone. Nothing to install.',
     ],
   },
   {
-    phase: 'Phase 2',
-    tag: 'Next',
-    title: 'Make it a daily habit',
+    phase: 'Coming soon',
+    title: 'Prices that come to you',
     points: [
-      'Price alerts and watchlists — get told when your crop moves',
-      'WhatsApp and SMS delivery, so prices reach users where they already are',
-      'More markets, more crops, driven by waitlist demand',
-      'USSD access for feature phones — no internet required',
+      'Price alerts that tell you the moment your crop moves',
+      'Watchlists for the crops and markets you care about',
+      'Prices delivered on WhatsApp and SMS, where you already chat',
+      'More markets and crops, added where waitlist members are',
     ],
   },
   {
-    phase: 'Phase 3',
-    tag: 'Monetise',
-    title: 'Turn trust into revenue',
+    phase: 'On the roadmap',
+    title: 'Any phone, anywhere',
     points: [
-      'Pro subscription after free early access — alerts, trends and full price history',
-      'Priced so a single better sale covers months of the fee',
-      'Data and insights licensing for agribusiness, NGOs, lenders and policy teams',
-      'Every day of collection compounds a proprietary price-history dataset',
+      'USSD access for feature phones. No internet, no data bundle needed.',
+      'Built to work on slow connections and cheap data',
+      'Simple enough to use at the market, in the sun, in a hurry',
     ],
   },
   {
-    phase: 'Phase 4',
-    tag: 'Scale',
-    title: 'From information to transactions',
+    phase: 'The bigger picture',
+    title: 'From checking prices to selling better',
     points: [
-      'Marketplace: connect sellers holding stock with buyers who need it',
-      'Logistics partnerships to close the distance between markets',
-      'Cross-border price corridors — Kasumbalesa and the wider COMESA trade routes',
-      'The price layer for agricultural trade in the region',
+      'Connect with buyers in other markets when you have stock to move',
+      'Transport options to get goods where prices are better',
+      'Cross-border prices for trade routes like Kasumbalesa',
     ],
   },
 ]
@@ -181,8 +174,7 @@ export default function App() {
           </a>
           <nav className="nav-links">
             <a href="#how">How it works</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#investors">Investors</a>
+            <a href="#coming">What you'll get</a>
             <a href="#faq">FAQ</a>
           </nav>
           <a className="btn btn-primary" href="#waitlist">Join waitlist</a>
@@ -199,8 +191,9 @@ export default function App() {
                 Know the price <span className="accent">before</span> you sell.
               </h1>
               <p className="lede">
-                AgriPulse shows daily crop prices across Zambia's markets — on any phone.
-                Farmers, traders and retailers stop guessing, stop losing money, and sell where it pays.
+                AgriPulse shows daily crop prices across Zambia's markets, on any phone.
+                Whether you farm, trade or run a shop: stop guessing, stop losing money,
+                sell where it pays.
               </p>
               <div className="hero-cta">
                 <a className="btn btn-primary btn-lg" href="#waitlist">Join the waitlist</a>
@@ -248,7 +241,7 @@ export default function App() {
         <section className="ticker" aria-label="Sample crop prices across markets">
           <TickerRow items={TICKER_ROW_1} />
           <TickerRow items={TICKER_ROW_2} reverse />
-          <p className="ticker-note container">Illustrative prices — the live app shows real daily prices from each market.</p>
+          <p className="ticker-note container">Illustrative prices. The live app shows real daily prices from each market.</p>
         </section>
 
         {/* ---------- PROBLEM ---------- */}
@@ -259,8 +252,8 @@ export default function App() {
             <div className="cards-3">
               <div className="card">
                 <div className="card-icon"><IconEyeOff /></div>
-                <h3>Producers sell blind</h3>
-                <p>Most farmers only learn the price when the buyer names it — at the farm gate, with the crop already harvested and nowhere else to go.</p>
+                <h3>Selling blind</h3>
+                <p>Too often you only learn the price when the buyer names it, at the farm gate, with the harvest already done and nowhere else to go.</p>
               </div>
               <div className="card">
                 <div className="card-icon"><IconSwings /></div>
@@ -270,39 +263,7 @@ export default function App() {
               <div className="card">
                 <div className="card-icon"><IconRoute /></div>
                 <h3>Travel is a gamble</h3>
-                <p>Going to a further market costs fuel and time. Nobody risks it on a rumour — so everyone stays, and sells low.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ---------- OPPORTUNITY ---------- */}
-        <section className="opportunity">
-          <div className="container">
-            <span className="kicker">The opportunity</span>
-            <h2>A massive market, still running on word of mouth.</h2>
-            <p className="opportunity-lede">
-              Agriculture is the backbone of Zambia's economy — yet for most of the people
-              in it, price discovery still happens by rumour, phone-a-friend, or showing up
-              and hoping. Mobile phones are already in every pocket. The information layer is missing.
-              AgriPulse is that layer.
-            </p>
-            <div className="stats-row">
-              <div className="stat">
-                <strong>~70%</strong>
-                <span>of Zambians depend on agriculture for their livelihood</span>
-              </div>
-              <div className="stat">
-                <strong>1.5M+</strong>
-                <span>smallholder farming households selling into informal markets</span>
-              </div>
-              <div className="stat">
-                <strong>20M+</strong>
-                <span>active mobile connections — the rails already exist</span>
-              </div>
-              <div className="stat">
-                <strong>0</strong>
-                <span>widely-used daily price service across Zambian markets today</span>
+                <p>Going to a further market costs fuel and time. Nobody risks it on a rumour, so everyone stays and sells low.</p>
               </div>
             </div>
           </div>
@@ -317,7 +278,7 @@ export default function App() {
               <div className="step">
                 <span className="step-num">1</span>
                 <h3>Check today's prices</h3>
-                <p>Open AgriPulse and see what your crop is selling for right now — collected daily from real markets.</p>
+                <p>Open AgriPulse and see what your crop is selling for right now, collected daily from real markets.</p>
               </div>
               <div className="step">
                 <span className="step-num">2</span>
@@ -327,7 +288,7 @@ export default function App() {
               <div className="step">
                 <span className="step-num">3</span>
                 <h3>Sell where it pays</h3>
-                <p>Decide with numbers, not rumours — whether that's holding a week, or loading the truck for a better market.</p>
+                <p>Decide with numbers, not rumours. Hold for a week, or load the truck for a better market.</p>
               </div>
             </div>
           </div>
@@ -347,7 +308,7 @@ export default function App() {
               <div className="card who-card">
                 <div className="card-icon"><IconTruck /></div>
                 <h3>Traders</h3>
-                <p>Track price gaps between markets and protect your margin. Buy low, sell high — with today's numbers, not last week's.</p>
+                <p>Track price gaps between markets and protect your margin. Buy low, sell high, with today's numbers instead of last week's.</p>
               </div>
               <div className="card who-card">
                 <div className="card-icon"><IconStore /></div>
@@ -358,11 +319,11 @@ export default function App() {
           </div>
         </section>
 
-        {/* ---------- ROADMAP ---------- */}
-        <section className="section roadmap" id="roadmap">
+        {/* ---------- WHAT YOU'LL GET ---------- */}
+        <section className="section roadmap" id="coming">
           <div className="container">
-            <span className="kicker">Where this goes</span>
-            <h2>From price checks to the trading layer of Zambian agriculture.</h2>
+            <span className="kicker">What you'll get</span>
+            <h2>Useful on day one. Better every month.</h2>
             <div className="timeline">
               {ROADMAP.map((item) => (
                 <div className="timeline-item" key={item.phase}>
@@ -372,7 +333,6 @@ export default function App() {
                   <div className="timeline-card">
                     <div className="timeline-head">
                       <span className="timeline-phase">{item.phase}</span>
-                      <span className="timeline-tag">{item.tag}</span>
                     </div>
                     <h3>{item.title}</h3>
                     <ul>
@@ -387,34 +347,34 @@ export default function App() {
           </div>
         </section>
 
-        {/* ---------- BUSINESS MODEL ---------- */}
-        <section className="section model">
+        {/* ---------- WHY WE'RE BUILDING THIS ---------- */}
+        <section className="mission">
           <div className="container">
-            <span className="kicker">The business</span>
-            <h2>Free builds the habit. The habit builds the business.</h2>
-            <p className="model-lede">
-              Early access is free on purpose: daily price checks become a habit, the user base
-              grows market by market, and every day of collection deepens a price-history dataset
-              nobody else has. Revenue then stacks in three layers:
+            <span className="kicker">Why we're building this</span>
+            <h2>Fair prices should not depend on who you know.</h2>
+            <p className="mission-lede">
+              Agriculture feeds Zambia and employs most of it. Yet the people doing the work
+              still find prices by rumour, phone-a-friend, or showing up and hoping.
+              The phones are already in every pocket. What's missing is the information.
+              AgriPulse exists to close that gap, starting with something simple:
+              today's prices, in your hand, every day.
             </p>
-            <div className="cards-3">
-              <div className="card model-card">
-                <div className="card-icon"><IconCard /></div>
-                <span className="model-when">First revenue</span>
-                <h3>Pro subscriptions</h3>
-                <p>Alerts, trends and full history for power users — traders first, since a single protected margin pays for a year of the product.</p>
+            <div className="stats-row">
+              <div className="stat">
+                <strong>~70%</strong>
+                <span>of Zambians depend on agriculture for their livelihood</span>
               </div>
-              <div className="card model-card">
-                <div className="card-icon"><IconDatabase /></div>
-                <span className="model-when">Second layer</span>
-                <h3>Data and insights</h3>
-                <p>Clean, daily, market-level price data licensed to agribusiness, lenders, NGOs and policy teams who currently fly blind between official reports.</p>
+              <div className="stat">
+                <strong>1.5M+</strong>
+                <span>smallholder farming families selling into local markets</span>
               </div>
-              <div className="card model-card">
-                <div className="card-icon"><IconNetwork /></div>
-                <span className="model-when">The endgame</span>
-                <h3>Marketplace and logistics</h3>
-                <p>Once buyers and sellers both watch the same prices, connecting them — and moving the goods — is the natural next step, with a fee on facilitated trade.</p>
+              <div className="stat">
+                <strong>20M+</strong>
+                <span>active mobile connections across the country</span>
+              </div>
+              <div className="stat">
+                <strong>1</strong>
+                <span>place to see what your crop is really worth: AgriPulse</span>
               </div>
             </div>
           </div>
@@ -427,18 +387,17 @@ export default function App() {
               <span className="kicker">Reach</span>
               <h2>No smartphone? No problem.</h2>
               <p>
-                SMS and USSD access are on the roadmap so any phone can check prices — no internet,
-                no app, no data bundle. Price information should reach the furthest farm,
-                not just the smartphone in town. That's also what makes this defensible:
-                the network reaches where app-only competitors can't.
+                SMS and USSD access are on the roadmap so any phone can check prices.
+                No internet, no app, no data bundle. Price information should reach
+                the furthest farm, not just the smartphone in town.
               </p>
             </div>
             <div className="ussd-phone">
               <div className="ussd-screen">
-                <p>AgriPulse — Prices today</p>
-                <p>1. Maize — K340 (Soweto)</p>
-                <p>2. Tomatoes — K180 (Soweto)</p>
-                <p>3. Soya — K9.50/kg (Kitwe)</p>
+                <p>AgriPulse. Prices today:</p>
+                <p>1. Maize K340 (Soweto)</p>
+                <p>2. Tomatoes K180 (Soweto)</p>
+                <p>3. Soya K9.50/kg (Kitwe)</p>
                 <p>4. Change market</p>
                 <p>5. Help</p>
                 <p className="ussd-cursor">_</p>
@@ -455,36 +414,17 @@ export default function App() {
               <h2>Be first when we switch on your market.</h2>
               <p>
                 Join the waitlist and we'll message you the moment AgriPulse covers your area.
-                Early members get it <strong>free</strong> — and help us decide which markets and crops come first.
+                Early members get it <strong>free</strong>, and help us decide which markets
+                and crops come first.
               </p>
               <ul className="ticks">
                 <li>Free during early access</li>
-                <li>Works on any smartphone — nothing to install</li>
+                <li>Works on any smartphone, nothing to install</li>
                 <li>Your number is never shared</li>
               </ul>
             </div>
             <div className="waitlist-form-wrap">
               <WaitlistForm />
-            </div>
-          </div>
-        </section>
-
-        {/* ---------- INVESTORS ---------- */}
-        <section className="investors" id="investors">
-          <div className="container investors-inner">
-            <span className="kicker">Investors &amp; partners</span>
-            <h2>We're building the price layer for Zambian agriculture.</h2>
-            <p>
-              Grounded in field research with farmers, traders and retailers, AgriPulse starts
-              with the simplest wedge — daily prices — and compounds toward data, subscriptions
-              and trade. If you invest in African agritech, fintech rails or market
-              infrastructure, we'd like to talk.
-            </p>
-            <div className="investors-cta">
-              <a className="btn btn-light btn-lg" href="mailto:taizyakasitu20@gmail.com?subject=AgriPulse%20investor%20conversation">
-                Start a conversation
-              </a>
-              <a className="btn btn-outline btn-lg" href="#waitlist">See the product first</a>
             </div>
           </div>
         </section>
@@ -497,23 +437,23 @@ export default function App() {
             <div className="faq-list">
               <details>
                 <summary>Where do the prices come from?</summary>
-                <p>From the markets themselves — collected daily and cross-checked before publishing. Every price shows the market and when it was updated, so you can judge it yourself.</p>
+                <p>From the markets themselves, collected daily and cross-checked before publishing. Every price shows the market and when it was updated, so you can judge it yourself.</p>
               </details>
               <details>
                 <summary>How much does it cost?</summary>
-                <p>Nothing during early access. Later, there'll be a small monthly subscription — priced so that one better sale covers months of it. Waitlist members will always get the best deal.</p>
+                <p>Nothing during early access. Later there will be a small monthly subscription, priced so that one better sale covers months of it. Waitlist members will always get the best deal.</p>
               </details>
               <details>
                 <summary>Which markets will you cover first?</summary>
-                <p>We're starting with the busiest trading hubs — Lusaka, Kitwe, Ndola, Chipata — and expanding based on where waitlist members are. Your signup literally votes for your market.</p>
+                <p>We're starting with the busiest trading hubs: Lusaka, Kitwe, Ndola and Chipata, then expanding based on where waitlist members are. Your signup literally votes for your market.</p>
               </details>
               <details>
                 <summary>I don't have a smartphone. Can I still use it?</summary>
-                <p>SMS and USSD access is on our roadmap so any phone can check prices. Join the waitlist and tell us your town — it helps us prioritise.</p>
+                <p>SMS and USSD access is on our roadmap so any phone can check prices. Join the waitlist and tell us your town. It helps us prioritise.</p>
               </details>
               <details>
                 <summary>How is this different from asking around?</summary>
-                <p>Asking around gets you one or two prices, hours old, from people who may have their own interests. AgriPulse shows the same day's prices across many markets at once — so the decision is yours, made with numbers.</p>
+                <p>Asking around gets you one or two prices, hours old, from people who may have their own interests. AgriPulse shows the same day's prices across many markets at once, so the decision is yours, made with numbers.</p>
               </details>
             </div>
           </div>
@@ -528,14 +468,15 @@ export default function App() {
           </div>
           <div className="footer-links">
             <a href="#how">How it works</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#investors">Investors</a>
+            <a href="#coming">What you'll get</a>
             <a href="#waitlist">Join waitlist</a>
             <a href="#faq">FAQ</a>
+            <a href="mailto:taizyakasitu20@gmail.com?subject=AgriPulse">Contact us</a>
           </div>
         </div>
         <div className="container footer-bottom">
           <span>© {new Date().getFullYear()} AgriPulse. Proudly Zambian.</span>
+          <span className="footer-invest">Partner or investor? <a href="mailto:taizyakasitu20@gmail.com?subject=AgriPulse%20partnership">Email us</a></span>
         </div>
       </footer>
     </>

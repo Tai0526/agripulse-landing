@@ -9,7 +9,7 @@ export function isConfigured() {
 
 export async function joinWaitlist({ name, phone, town, email }) {
   if (!isConfigured()) {
-    throw new Error('Signups are not open yet — please check back shortly.')
+    throw new Error('Signups are not open yet. Please check back shortly.')
   }
   const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
     method: 'POST',
@@ -25,7 +25,7 @@ export async function joinWaitlist({ name, phone, town, email }) {
     const text = await res.text()
     // 23505 = unique violation → this phone already signed up
     if (text.includes('23505')) {
-      throw new Error('This phone number is already on the waitlist — you are in!')
+      throw new Error('This phone number is already on the waitlist. You are in!')
     }
     throw new Error('Something went wrong. Please try again.')
   }

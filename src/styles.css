@@ -48,6 +48,7 @@ h3 { font-size: 19px; margin-bottom: 8px; }
 }
 
 .section { padding: 96px 0; }
+section[id] { scroll-margin-top: 84px; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -310,11 +311,11 @@ h3 { font-size: 19px; margin-bottom: 8px; }
 }
 .problem { background: var(--bg-soft); }
 
-/* ---------- Opportunity ---------- */
-.opportunity { background: var(--green-950); color: #fff; padding: 96px 0; }
-.opportunity .kicker { color: var(--green-500); }
-.opportunity h2 { color: #fff; }
-.opportunity-lede {
+/* ---------- Mission ---------- */
+.mission { background: var(--green-950); color: #fff; padding: 96px 0; }
+.mission .kicker { color: var(--green-500); }
+.mission h2 { color: #fff; }
+.mission-lede {
   color: rgba(255, 255, 255, 0.75);
   font-size: 16.5px;
   max-width: 640px;
@@ -408,37 +409,6 @@ h3 { font-size: 19px; margin-bottom: 8px; }
   background: var(--green-500);
 }
 
-/* ---------- Business model ---------- */
-.model-lede { color: var(--ink-soft); font-size: 16.5px; max-width: 640px; margin: -16px 0 44px; }
-.model-when {
-  display: inline-block;
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--green-600);
-  margin-bottom: 6px;
-}
-
-/* ---------- Investors ---------- */
-.investors {
-  background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
-  color: #fff;
-  padding: 96px 0;
-}
-.investors .kicker { color: var(--green-100); }
-.investors h2 { color: #fff; max-width: 720px; }
-.investors p {
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 17px;
-  max-width: 660px;
-  margin: -12px 0 36px;
-}
-.investors-cta { display: flex; gap: 14px; flex-wrap: wrap; }
-.btn-light { background: #fff; color: var(--green-900); }
-.btn-light:hover { background: var(--green-50); }
-.btn-outline { border-color: rgba(255, 255, 255, 0.4); color: #fff; }
-.btn-outline:hover { border-color: #fff; background: rgba(255, 255, 255, 0.08); }
 
 /* Steps */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -612,13 +582,21 @@ h3 { font-size: 19px; margin-bottom: 8px; }
 .footer-links { display: flex; flex-direction: column; gap: 10px; }
 .footer-links a { color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: 14.5px; }
 .footer-links a:hover { color: #fff; }
-.footer-bottom { padding-top: 24px; font-size: 13px; }
+.footer-bottom {
+  padding-top: 24px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer-invest a { color: #fff; font-weight: 600; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .section { padding: 64px 0; }
   .hero { padding: 48px 0; }
-  .opportunity, .investors { padding: 64px 0; }
+  .mission { padding: 64px 0; }
   .hero-inner, .ussd-inner, .waitlist-inner { grid-template-columns: 1fr; gap: 40px; }
   .cards-3, .steps { grid-template-columns: 1fr; }
   .stats-row { grid-template-columns: 1fr 1fr; }
@@ -627,11 +605,60 @@ h3 { font-size: 19px; margin-bottom: 8px; }
   .hero-proof { gap: 24px; }
 }
 @media (max-width: 560px) {
-  .form-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 34px; }
+  .container { padding: 0 18px; }
+  .section { padding: 52px 0; }
+  .mission { padding: 52px 0; }
+  section[id] { scroll-margin-top: 70px; }
+  h2 { margin-bottom: 28px; }
+
+  /* Nav: compact, thumb-friendly */
+  .nav-inner { height: 58px; gap: 12px; }
+  .brand { font-size: 17px; }
+  .nav .btn-primary { padding: 9px 16px; font-size: 14px; }
+
+  /* Hero */
+  .hero { padding: 36px 0 44px; }
+  .hero-inner { gap: 32px; }
+  .badge { font-size: 12px; padding: 6px 12px; margin-bottom: 18px; }
+  .hero h1 { font-size: 33px; }
+  .lede { font-size: 16px; margin-bottom: 24px; }
+  .hero-cta { margin-bottom: 28px; }
   .hero-cta .btn { width: 100%; }
-  .stats-row { grid-template-columns: 1fr; }
+  .hero-proof { gap: 0; justify-content: space-between; width: 100%; }
+  .hero-proof strong { font-size: 19px; }
+  .hero-proof span { font-size: 12px; }
+  .hero-card { padding: 18px; border-radius: 20px; }
+
+  /* Ticker: smaller chips */
+  .ticker { padding: 24px 0 14px; }
+  .tick { padding: 8px 12px; gap: 9px; border-radius: 12px; }
+  .tick-code { font-size: 11px; padding: 5px 6px; }
+  .tick-name { font-size: 12.5px; }
+  .tick-price { font-size: 13px; }
+
+  /* Cards and steps */
+  .card { padding: 22px; }
+  .step { padding: 26px 22px; }
+
+  /* Timeline */
   .timeline::before { left: 9px; }
-  .timeline-item { gap: 16px; }
-  .timeline-marker { flex-basis: 20px; }
+  .timeline-item { gap: 14px; margin-bottom: 18px; }
+  .timeline-marker { flex: 0 0 20px; }
+  .timeline-card { padding: 20px; }
+
+  /* Stats and forms */
+  .stats-row { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat { padding: 18px 16px; }
+  .stat strong { font-size: 26px; }
+  .stat span { font-size: 12px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .waitlist-form-wrap { padding: 22px 18px; border-radius: 20px; }
+  .waitlist-form input { padding: 13px 14px; font-size: 16px; } /* 16px stops iOS zoom-on-focus */
+
+  /* USSD + FAQ + footer */
+  .ussd-screen { padding: 20px 22px; font-size: 13px; }
+  .faq-list details { padding: 15px 18px; }
+  .faq-list summary { font-size: 15px; }
+  .footer { padding: 44px 0 26px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
 }

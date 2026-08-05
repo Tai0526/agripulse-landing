@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { TICKER_ROW_1, TICKER_ROW_2 } from './data.js'
-import { joinWaitlist } from './waitlist.js'
+import { joinWaitlist, normalizeZambianPhone } from './waitlist.js'
 import Phone from './Phone.jsx'
 import {
   LogoMark, IconLeaf, IconTruck, IconStore, IconEyeOff, IconSwings, IconRoute,
@@ -56,14 +56,20 @@ function WaitlistForm() {
       setMessage('Please fill in your name, phone and town.')
       return
     }
+    const phone = normalizeZambianPhone(form.phone)
+    if (!phone) {
+      setStatus('error')
+      setMessage('Please enter a valid Zambian mobile number, e.g. 097 123 4567.')
+      return
+    }
     setStatus('sending')
     setMessage('')
     try {
       await joinWaitlist({
         name: form.name.trim(),
-        phone: form.phone.trim(),
+        phone,
         town: form.town.trim(),
-        email: form.email.trim(),
+        email: form.email.trim().toLowerCase(),
       })
       setStatus('done')
     } catch (err) {

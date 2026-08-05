@@ -13,6 +13,11 @@ create table if not exists public.waitlist (
 -- One signup per phone number
 create unique index if not exists waitlist_phone_key on public.waitlist (phone);
 
+-- One signup per email address too (when an email is given)
+create unique index if not exists waitlist_email_key
+  on public.waitlist (lower(email))
+  where email is not null and email <> '';
+
 alter table public.waitlist enable row level security;
 
 -- Anyone (anon) may join the waitlist…

@@ -23,9 +23,3 @@ export const TICKER_ROW_2 = [
   { code: 'EGG', name: 'Eggs (tray)', market: 'Livingstone Maramba', price: 'K115', change: 0 },
 ]
 
-export const HERO_PRICES = [
-  { name: 'Maize (50kg)', prices: [{ market: 'Soweto, Lusaka', value: 'K340' }, { market: 'Ndola Main', value: 'K365' }, { market: 'Chipata Main', value: 'K310' }], best: 1 },
-  { name: 'Tomatoes (box)', prices: [{ market: 'Soweto, Lusaka', value: 'K180' }, { market: 'Chisokone, Kitwe', value: 'K240' }, { market: 'Choma Central', value: 'K165' }], best: 1 },
-]
-
-export const SPARK = [12, 14, 13, 16, 15, 18, 17, 21, 20, 24, 23, 26]

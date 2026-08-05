@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { TICKER_ROW_1, TICKER_ROW_2, HERO_PRICES, SPARK } from './data.js'
+import { TICKER_ROW_1, TICKER_ROW_2 } from './data.js'
 import { joinWaitlist } from './waitlist.js'
+import Phone from './Phone.jsx'
 import {
   LogoMark, IconLeaf, IconTruck, IconStore, IconEyeOff, IconSwings, IconRoute,
 } from './Icons.jsx'
@@ -9,22 +10,6 @@ function Change({ value }) {
   const cls = value > 0 ? 'up' : value < 0 ? 'down' : 'flat'
   const sign = value > 0 ? '+' : ''
   return <span className={`change ${cls}`}>{`${sign}${value.toFixed(1)}%`}</span>
-}
-
-function Sparkline({ points }) {
-  const w = 120
-  const h = 36
-  const max = Math.max(...points)
-  const min = Math.min(...points)
-  const step = w / (points.length - 1)
-  const d = points
-    .map((p, i) => `${i === 0 ? 'M' : 'L'}${(i * step).toFixed(1)},${(h - ((p - min) / (max - min)) * (h - 6) - 3).toFixed(1)}`)
-    .join(' ')
-  return (
-    <svg viewBox={`0 0 ${w} ${h}`} className="spark" aria-hidden="true">
-      <path d={d} fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
 }
 
 function TickerItem({ item }) {
@@ -207,32 +192,7 @@ export default function App() {
             </div>
 
             <div className="hero-card-wrap">
-              <div className="hero-card">
-                <div className="hero-card-head">
-                  <div>
-                    <span className="hero-card-title">Today's prices</span>
-                    <span className="hero-card-sub">Updated this morning</span>
-                  </div>
-                  <span className="live-dot">LIVE</span>
-                </div>
-                {HERO_PRICES.map((crop) => (
-                  <div className="crop-block" key={crop.name}>
-                    <div className="crop-head">
-                      <span className="crop-name">{crop.name}</span>
-                      <Sparkline points={SPARK} />
-                    </div>
-                    {crop.prices.map((p, i) => (
-                      <div className={`crop-row ${i === crop.best ? 'best' : ''}`} key={p.market}>
-                        <span>{p.market}</span>
-                        <span className="crop-price">
-                          {p.value} {i === crop.best && <em>best</em>}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-                <div className="hero-card-foot">Same crop. Different market. Up to <strong>45% more</strong>.</div>
-              </div>
+              <Phone />
             </div>
           </div>
         </section>

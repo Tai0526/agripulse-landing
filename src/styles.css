@@ -108,7 +108,7 @@ h3 { font-size: 19px; margin-bottom: 8px; }
   align-items: center;
   gap: 8px;
 }
-.brand-mark { font-size: 22px; }
+.brand-mark { display: inline-flex; color: var(--green-700); }
 .nav-links { display: flex; gap: 28px; }
 .nav-links a {
   color: var(--ink-soft);
@@ -298,8 +298,147 @@ h3 { font-size: 19px; margin-bottom: 8px; }
   box-shadow: var(--shadow-sm);
 }
 .card p { color: var(--ink-soft); font-size: 15px; }
-.card-emoji { font-size: 30px; margin-bottom: 14px; }
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: var(--green-100);
+  color: var(--green-700);
+  margin-bottom: 16px;
+}
 .problem { background: var(--bg-soft); }
+
+/* ---------- Opportunity ---------- */
+.opportunity { background: var(--green-950); color: #fff; padding: 96px 0; }
+.opportunity .kicker { color: var(--green-500); }
+.opportunity h2 { color: #fff; }
+.opportunity-lede {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 16.5px;
+  max-width: 640px;
+  margin: -16px 0 48px;
+}
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.stat {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.stat strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 34px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.stat span { font-size: 13.5px; color: rgba(255, 255, 255, 0.7); line-height: 1.5; display: block; }
+
+/* ---------- Roadmap ---------- */
+.roadmap { background: var(--bg-soft); }
+.timeline { position: relative; max-width: 760px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--green-500), var(--green-100));
+}
+.timeline-item { position: relative; display: flex; gap: 24px; margin-bottom: 24px; }
+.timeline-marker { flex: 0 0 24px; display: flex; justify-content: center; }
+.timeline-dot {
+  width: 14px; height: 14px;
+  margin-top: 26px;
+  border-radius: 50%;
+  background: var(--green-500);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px var(--green-500);
+  position: relative;
+  z-index: 1;
+}
+.timeline-card {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 26px 28px;
+}
+.timeline-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.timeline-phase {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-600);
+}
+.timeline-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--green-50);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+.timeline-card ul { list-style: none; margin-top: 10px; }
+.timeline-card li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 8px;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+}
+.timeline-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px; height: 8px;
+  border-radius: 2px;
+  background: var(--green-500);
+}
+
+/* ---------- Business model ---------- */
+.model-lede { color: var(--ink-soft); font-size: 16.5px; max-width: 640px; margin: -16px 0 44px; }
+.model-when {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-600);
+  margin-bottom: 6px;
+}
+
+/* ---------- Investors ---------- */
+.investors {
+  background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
+  color: #fff;
+  padding: 96px 0;
+}
+.investors .kicker { color: var(--green-100); }
+.investors h2 { color: #fff; max-width: 720px; }
+.investors p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 17px;
+  max-width: 660px;
+  margin: -12px 0 36px;
+}
+.investors-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-light { background: #fff; color: var(--green-900); }
+.btn-light:hover { background: var(--green-50); }
+.btn-outline { border-color: rgba(255, 255, 255, 0.4); color: #fff; }
+.btn-outline:hover { border-color: #fff; background: rgba(255, 255, 255, 0.08); }
 
 /* Steps */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -479,8 +618,10 @@ h3 { font-size: 19px; margin-bottom: 8px; }
 @media (max-width: 900px) {
   .section { padding: 64px 0; }
   .hero { padding: 48px 0; }
+  .opportunity, .investors { padding: 64px 0; }
   .hero-inner, .ussd-inner, .waitlist-inner { grid-template-columns: 1fr; gap: 40px; }
   .cards-3, .steps { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: 1fr 1fr; }
   .nav-links { display: none; }
   .hero-card { transform: none; }
   .hero-proof { gap: 24px; }
@@ -489,4 +630,8 @@ h3 { font-size: 19px; margin-bottom: 8px; }
   .form-grid { grid-template-columns: 1fr; }
   .hero h1 { font-size: 34px; }
   .hero-cta .btn { width: 100%; }
+  .stats-row { grid-template-columns: 1fr; }
+  .timeline::before { left: 9px; }
+  .timeline-item { gap: 16px; }
+  .timeline-marker { flex-basis: 20px; }
 }

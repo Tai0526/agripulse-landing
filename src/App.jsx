@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { TICKER_ROW_1, TICKER_ROW_2, HERO_PRICES, SPARK } from './data.js'
 import { joinWaitlist } from './waitlist.js'
+import {
+  LogoMark, IconLeaf, IconTruck, IconStore, IconEyeOff, IconSwings, IconRoute,
+  IconBell, IconChat, IconChart, IconNetwork, IconDatabase, IconCard,
+} from './Icons.jsx'
 
 function Change({ value }) {
   const cls = value > 0 ? 'up' : value < 0 ? 'down' : 'flat'
@@ -120,17 +124,65 @@ function WaitlistForm({ compact }) {
   )
 }
 
+const ROADMAP = [
+  {
+    phase: 'Phase 1',
+    tag: 'Now — 2026',
+    title: 'Validate and launch',
+    points: [
+      'Field research completed with farmers, traders and retailers across market roles',
+      'Waitlist live; onboarding early users market by market',
+      'Daily price collection in the first hub markets — Lusaka, Kitwe, Ndola, Chipata',
+      'Web app: daily prices, market comparison, price history',
+    ],
+  },
+  {
+    phase: 'Phase 2',
+    tag: 'Next',
+    title: 'Make it a daily habit',
+    points: [
+      'Price alerts and watchlists — get told when your crop moves',
+      'WhatsApp and SMS delivery, so prices reach users where they already are',
+      'More markets, more crops, driven by waitlist demand',
+      'USSD access for feature phones — no internet required',
+    ],
+  },
+  {
+    phase: 'Phase 3',
+    tag: 'Monetise',
+    title: 'Turn trust into revenue',
+    points: [
+      'Pro subscription after free early access — alerts, trends and full price history',
+      'Priced so a single better sale covers months of the fee',
+      'Data and insights licensing for agribusiness, NGOs, lenders and policy teams',
+      'Every day of collection compounds a proprietary price-history dataset',
+    ],
+  },
+  {
+    phase: 'Phase 4',
+    tag: 'Scale',
+    title: 'From information to transactions',
+    points: [
+      'Marketplace: connect sellers holding stock with buyers who need it',
+      'Logistics partnerships to close the distance between markets',
+      'Cross-border price corridors — Kasumbalesa and the wider COMESA trade routes',
+      'The price layer for agricultural trade in the region',
+    ],
+  },
+]
+
 export default function App() {
   return (
     <>
       <header className="nav">
         <div className="container nav-inner">
           <a className="brand" href="#top">
-            <span className="brand-mark">🌾</span> AgriPulse
+            <span className="brand-mark"><LogoMark /></span> AgriPulse
           </a>
           <nav className="nav-links">
             <a href="#how">How it works</a>
-            <a href="#who">Who it's for</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#investors">Investors</a>
             <a href="#faq">FAQ</a>
           </nav>
           <a className="btn btn-primary" href="#waitlist">Join waitlist</a>
@@ -142,13 +194,13 @@ export default function App() {
         <section className="hero">
           <div className="container hero-inner">
             <div className="hero-copy">
-              <span className="badge">🇿🇲 Launching soon in Zambia · Free early access</span>
+              <span className="badge">Launching soon in Zambia · Free early access</span>
               <h1>
                 Know the price <span className="accent">before</span> you sell.
               </h1>
               <p className="lede">
-                AgriPulse shows you daily crop prices across Zambia's markets — on your phone.
-                Farmers, traders and retailers: stop guessing, stop losing money, sell where it pays.
+                AgriPulse shows daily crop prices across Zambia's markets — on any phone.
+                Farmers, traders and retailers stop guessing, stop losing money, and sell where it pays.
               </p>
               <div className="hero-cta">
                 <a className="btn btn-primary btn-lg" href="#waitlist">Join the waitlist</a>
@@ -206,19 +258,51 @@ export default function App() {
             <h2>Every day, money is left on the table.</h2>
             <div className="cards-3">
               <div className="card">
-                <div className="card-emoji">🤝</div>
-                <h3>You sell blind</h3>
+                <div className="card-icon"><IconEyeOff /></div>
+                <h3>Producers sell blind</h3>
                 <p>Most farmers only learn the price when the buyer names it — at the farm gate, with the crop already harvested and nowhere else to go.</p>
               </div>
               <div className="card">
-                <div className="card-emoji">📉</div>
+                <div className="card-icon"><IconSwings /></div>
                 <h3>Prices swing daily</h3>
                 <p>A box of tomatoes can differ by K60 between two markets in the same week. Without visibility, you find out when it's too late.</p>
               </div>
               <div className="card">
-                <div className="card-emoji">🛻</div>
+                <div className="card-icon"><IconRoute /></div>
                 <h3>Travel is a gamble</h3>
                 <p>Going to a further market costs fuel and time. Nobody risks it on a rumour — so everyone stays, and sells low.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- OPPORTUNITY ---------- */}
+        <section className="opportunity">
+          <div className="container">
+            <span className="kicker">The opportunity</span>
+            <h2>A massive market, still running on word of mouth.</h2>
+            <p className="opportunity-lede">
+              Agriculture is the backbone of Zambia's economy — yet for most of the people
+              in it, price discovery still happens by rumour, phone-a-friend, or showing up
+              and hoping. Mobile phones are already in every pocket. The information layer is missing.
+              AgriPulse is that layer.
+            </p>
+            <div className="stats-row">
+              <div className="stat">
+                <strong>~70%</strong>
+                <span>of Zambians depend on agriculture for their livelihood</span>
+              </div>
+              <div className="stat">
+                <strong>1.5M+</strong>
+                <span>smallholder farming households selling into informal markets</span>
+              </div>
+              <div className="stat">
+                <strong>20M+</strong>
+                <span>active mobile connections — the rails already exist</span>
+              </div>
+              <div className="stat">
+                <strong>0</strong>
+                <span>widely-used daily price service across Zambian markets today</span>
               </div>
             </div>
           </div>
@@ -256,19 +340,81 @@ export default function App() {
             <h2>Built for everyone in the chain.</h2>
             <div className="cards-3">
               <div className="card who-card">
-                <div className="card-emoji">🌱</div>
+                <div className="card-icon"><IconLeaf /></div>
                 <h3>Farmers</h3>
                 <p>Know the fair price before the buyer arrives. Negotiate with confidence, or take your harvest where it's worth more.</p>
               </div>
               <div className="card who-card">
-                <div className="card-emoji">🚚</div>
+                <div className="card-icon"><IconTruck /></div>
                 <h3>Traders</h3>
                 <p>Track price gaps between markets and protect your margin. Buy low, sell high — with today's numbers, not last week's.</p>
               </div>
               <div className="card who-card">
-                <div className="card-emoji">🏪</div>
+                <div className="card-icon"><IconStore /></div>
                 <h3>Retailers</h3>
                 <p>Source smarter. Compare supply markets on price and consistency, and stop overpaying for stock.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- ROADMAP ---------- */}
+        <section className="section roadmap" id="roadmap">
+          <div className="container">
+            <span className="kicker">Where this goes</span>
+            <h2>From price checks to the trading layer of Zambian agriculture.</h2>
+            <div className="timeline">
+              {ROADMAP.map((item) => (
+                <div className="timeline-item" key={item.phase}>
+                  <div className="timeline-marker">
+                    <span className="timeline-dot" />
+                  </div>
+                  <div className="timeline-card">
+                    <div className="timeline-head">
+                      <span className="timeline-phase">{item.phase}</span>
+                      <span className="timeline-tag">{item.tag}</span>
+                    </div>
+                    <h3>{item.title}</h3>
+                    <ul>
+                      {item.points.map((p) => (
+                        <li key={p}>{p}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- BUSINESS MODEL ---------- */}
+        <section className="section model">
+          <div className="container">
+            <span className="kicker">The business</span>
+            <h2>Free builds the habit. The habit builds the business.</h2>
+            <p className="model-lede">
+              Early access is free on purpose: daily price checks become a habit, the user base
+              grows market by market, and every day of collection deepens a price-history dataset
+              nobody else has. Revenue then stacks in three layers:
+            </p>
+            <div className="cards-3">
+              <div className="card model-card">
+                <div className="card-icon"><IconCard /></div>
+                <span className="model-when">First revenue</span>
+                <h3>Pro subscriptions</h3>
+                <p>Alerts, trends and full history for power users — traders first, since a single protected margin pays for a year of the product.</p>
+              </div>
+              <div className="card model-card">
+                <div className="card-icon"><IconDatabase /></div>
+                <span className="model-when">Second layer</span>
+                <h3>Data and insights</h3>
+                <p>Clean, daily, market-level price data licensed to agribusiness, lenders, NGOs and policy teams who currently fly blind between official reports.</p>
+              </div>
+              <div className="card model-card">
+                <div className="card-icon"><IconNetwork /></div>
+                <span className="model-when">The endgame</span>
+                <h3>Marketplace and logistics</h3>
+                <p>Once buyers and sellers both watch the same prices, connecting them — and moving the goods — is the natural next step, with a fee on facilitated trade.</p>
               </div>
             </div>
           </div>
@@ -278,11 +424,13 @@ export default function App() {
         <section className="section ussd">
           <div className="container ussd-inner">
             <div className="ussd-copy">
-              <span className="kicker">On the roadmap</span>
+              <span className="kicker">Reach</span>
               <h2>No smartphone? No problem.</h2>
               <p>
-                We're building SMS and USSD access so any phone can check prices — no internet, no app, no data bundle.
-                Because price information should reach the furthest farm, not just the smartphone in town.
+                SMS and USSD access are on the roadmap so any phone can check prices — no internet,
+                no app, no data bundle. Price information should reach the furthest farm,
+                not just the smartphone in town. That's also what makes this defensible:
+                the network reaches where app-only competitors can't.
               </p>
             </div>
             <div className="ussd-phone">
@@ -321,6 +469,26 @@ export default function App() {
           </div>
         </section>
 
+        {/* ---------- INVESTORS ---------- */}
+        <section className="investors" id="investors">
+          <div className="container investors-inner">
+            <span className="kicker">Investors &amp; partners</span>
+            <h2>We're building the price layer for Zambian agriculture.</h2>
+            <p>
+              Grounded in field research with farmers, traders and retailers, AgriPulse starts
+              with the simplest wedge — daily prices — and compounds toward data, subscriptions
+              and trade. If you invest in African agritech, fintech rails or market
+              infrastructure, we'd like to talk.
+            </p>
+            <div className="investors-cta">
+              <a className="btn btn-light btn-lg" href="mailto:taizyakasitu20@gmail.com?subject=AgriPulse%20investor%20conversation">
+                Start a conversation
+              </a>
+              <a className="btn btn-outline btn-lg" href="#waitlist">See the product first</a>
+            </div>
+          </div>
+        </section>
+
         {/* ---------- FAQ ---------- */}
         <section className="section faq" id="faq">
           <div className="container">
@@ -343,6 +511,10 @@ export default function App() {
                 <summary>I don't have a smartphone. Can I still use it?</summary>
                 <p>SMS and USSD access is on our roadmap so any phone can check prices. Join the waitlist and tell us your town — it helps us prioritise.</p>
               </details>
+              <details>
+                <summary>How is this different from asking around?</summary>
+                <p>Asking around gets you one or two prices, hours old, from people who may have their own interests. AgriPulse shows the same day's prices across many markets at once — so the decision is yours, made with numbers.</p>
+              </details>
             </div>
           </div>
         </section>
@@ -351,18 +523,19 @@ export default function App() {
       <footer className="footer">
         <div className="container footer-inner">
           <div>
-            <a className="brand" href="#top"><span className="brand-mark">🌾</span> AgriPulse</a>
+            <a className="brand" href="#top"><span className="brand-mark"><LogoMark /></span> AgriPulse</a>
             <p className="footer-tag">Daily crop prices for Zambia's farmers, traders and retailers.</p>
           </div>
           <div className="footer-links">
             <a href="#how">How it works</a>
-            <a href="#who">Who it's for</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#investors">Investors</a>
             <a href="#waitlist">Join waitlist</a>
             <a href="#faq">FAQ</a>
           </div>
         </div>
         <div className="container footer-bottom">
-          <span>© {new Date().getFullYear()} AgriPulse. Made in Zambia 🇿🇲</span>
+          <span>© {new Date().getFullYear()} AgriPulse. Proudly Zambian.</span>
         </div>
       </footer>
     </>

@@ -143,19 +143,12 @@ export default function Phone() {
         </div>
       </div>
 
-      {/* floating cards */}
+      {/* floating alert */}
       <div className="float-card float-alert">
         <span className="float-icon"><MiniBell /></span>
         <span>
           <strong>Price alert</strong>
           Tomatoes up 5.8% at Chisokone
-        </span>
-      </div>
-      <div className="float-card float-best">
-        <span className="float-icon green"><MiniTrend /></span>
-        <span>
-          <strong>K365 for Maize</strong>
-          Best market: Ndola Main
         </span>
       </div>
     </div>

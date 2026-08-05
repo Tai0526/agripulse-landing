@@ -9,7 +9,9 @@ export const TICKER_ROW_1 = [
   { code: 'GNT', name: 'Groundnuts (20L)', market: 'Chipata Main', price: 'K210', change: +1.9 },
   { code: 'CAB', name: 'Cabbage (each)', market: 'Chisokone, Kitwe', price: 'K18', change: -2.7 },
   { code: 'IRP', name: 'Irish potatoes (10kg)', market: 'Mbala Rd, Kasama', price: 'K145', change: +0.7 },
+  { code: 'CHK', name: 'Village chicken', market: 'Chelstone, Lusaka', price: 'K130', change: +2.3 },
   { code: 'SWP', name: 'Sweet potatoes (25kg)', market: 'Ndola Main', price: 'K95', change: 0 },
+  { code: 'GOT', name: 'Goat (live)', market: 'Chipata Main', price: 'K850', change: +1.5 },
 ]
 
 export const TICKER_ROW_2 = [
@@ -20,6 +22,8 @@ export const TICKER_ROW_2 = [
   { code: 'BAN', name: 'Bananas (bunch)', market: 'Soweto, Lusaka', price: 'K45', change: -3.5 },
   { code: 'OKR', name: 'Okra (5kg)', market: 'Ndola Main', price: 'K60', change: +2.1 },
   { code: 'PPR', name: 'Green pepper (5kg)', market: 'Chisokone, Kitwe', price: 'K85', change: +4.3 },
+  { code: 'CTL', name: 'Cattle (live)', market: 'Choma Central', price: 'K9,800', change: -0.8 },
   { code: 'EGG', name: 'Eggs (tray)', market: 'Livingstone Maramba', price: 'K115', change: 0 },
+  { code: 'PIG', name: 'Pig (live)', market: 'Mkushi Central', price: 'K1,450', change: +2.0 },
 ]
 

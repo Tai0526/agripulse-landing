@@ -123,8 +123,9 @@ const ROADMAP = [
     phase: 'Coming soon',
     title: 'Prices that come to you',
     points: [
+      'Livestock prices too: cattle, goats, pigs and village chickens',
       'Price alerts that tell you the moment your crop moves',
-      'Watchlists for the crops and markets you care about',
+      'Watchlists for the crops, animals and markets you care about',
       'Prices delivered on WhatsApp and SMS, where you already chat',
       'More markets and crops, added where waitlist members are',
     ],
@@ -176,9 +177,9 @@ export default function App() {
                 Know the price <span className="accent">before</span> you sell.
               </h1>
               <p className="lede">
-                AgriPulse shows daily crop prices across Zambia's markets, on any phone.
-                Whether you farm, trade or run a shop: stop guessing, stop losing money,
-                sell where it pays.
+                AgriPulse shows daily crop and livestock prices across Zambia's markets,
+                on any phone. Whether you farm, trade or run a shop: stop guessing,
+                stop losing money, sell where it pays.
               </p>
               <div className="hero-cta">
                 <a className="btn btn-primary btn-lg" href="#waitlist">Join the waitlist</a>
@@ -424,7 +425,7 @@ export default function App() {
         <div className="container footer-inner">
           <div>
             <a className="brand" href="#top"><span className="brand-mark"><LogoMark /></span> AgriPulse</a>
-            <p className="footer-tag">Daily crop prices for Zambia's farmers, traders and retailers.</p>
+            <p className="footer-tag">Daily crop and livestock prices for Zambia's farmers, traders and retailers.</p>
           </div>
           <div className="footer-links">
             <a href="#how">How it works</a>

@@ -395,15 +395,13 @@ section[id] { scroll-margin-top: 84px; }
   color: var(--amber);
   flex-shrink: 0;
 }
-.float-icon.green { background: var(--green-100); color: var(--green-700); }
 .float-alert { top: 66px; right: -68px; animation: floaty 5s ease-in-out infinite; }
-.float-best { bottom: 84px; left: -76px; animation: floaty 5s ease-in-out 2.5s infinite; }
 @keyframes floaty {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .float-alert, .float-best { animation: none; }
+  .float-alert { animation: none; }
   .ticker-track { animation-duration: 120s; }
 }
 
@@ -769,7 +767,6 @@ section[id] { scroll-margin-top: 84px; }
   .nav-links { display: none; }
   .phone { transform: none; }
   .float-alert { right: -20px; }
-  .float-best { left: -20px; }
   .hero-proof { gap: 24px; }
 }
 @media (max-width: 560px) {
@@ -798,7 +795,6 @@ section[id] { scroll-margin-top: 84px; }
   .phone { width: 280px; }
   .phone-scene { padding: 10px 0; }
   .float-alert { right: -4px; top: 46px; }
-  .float-best { left: -4px; bottom: 70px; }
   .float-card { padding: 8px 11px; font-size: 11px; border-radius: 13px; }
   .float-card strong { font-size: 11.5px; }
   .float-icon { width: 26px; height: 26px; }

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2256" height="382" viewBox="0 0 1128 191">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#041c13"/>
+      <stop offset="0.55" stop-color="#0B3D2E"/>
+      <stop offset="1" stop-color="#0f4f3a"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f4f3a"/>
+      <stop offset="1" stop-color="#14684d"/>
+    </linearGradient>
+    <linearGradient id="fieldA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a8560"/>
+      <stop offset="1" stop-color="#14684d"/>
+    </linearGradient>
+    <linearGradient id="fieldB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#21a375"/>
+      <stop offset="1" stop-color="#1a8560"/>
+    </linearGradient>
+    <clipPath id="right">
+      <rect x="805" y="0" width="323" height="191"/>
+    </clipPath>
+  </defs>
+
+  <!-- background -->
+  <rect width="1128" height="191" fill="url(#bg)"/>
+
+  <!-- big soft pulse watermark -->
+  <path d="M-20 128h250l60-58 88 96 60-70h240" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- right-side field illustration -->
+  <g clip-path="url(#right)">
+    <rect x="805" y="0" width="323" height="191" fill="url(#sky)"/>
+    <circle cx="1042" cy="34" r="46" fill="#f5a623" opacity="0.28"/>
+    <circle cx="1042" cy="34" r="26" fill="#f5c623" opacity="0.5"/>
+    <!-- far hills -->
+    <path d="M805 96c60-26 130-30 200-16 50 10 90 8 123-2v113H805z" fill="#14684d"/>
+    <!-- field rows -->
+    <path d="M805 120c70-22 160-24 240-6 40 9 63 10 83 6v71H805z" fill="url(#fieldA)"/>
+    <path d="M805 150c80-20 170-18 240-4 40 8 63 9 83 6v39H805z" fill="url(#fieldB)"/>
+    <!-- crop row strokes -->
+    <g stroke="#0B3D2E" stroke-opacity="0.35" stroke-width="1.6">
+      <path d="M830 191c30-24 60-38 96-46M886 191c30-22 58-34 92-42M948 191c26-18 52-28 82-35M1010 191c22-14 44-23 70-29M1068 191c16-10 32-17 50-21" fill="none"/>
+    </g>
+    <!-- maize plant left of field -->
+    <g transform="translate(852,74)">
+      <path d="M0 62C0 28 4 8 8 0c4 8 8 28 8 62z" fill="#21a375"/>
+      <path d="M8 34C-8 26-16 12-18 2 0 6 8 16 10 28z" fill="#1a8560"/>
+      <path d="M8 34c16-8 24-22 26-32-18 4-26 14-28 26z" fill="#1a8560"/>
+      <path d="M8 52C-6 46-14 36-16 26 0 30 8 38 10 48z" fill="#21a375"/>
+      <path d="M8 52c14-6 22-16 24-26-16 4-24 12-26 22z" fill="#21a375"/>
+    </g>
+    <!-- floating price chip -->
+    <g transform="translate(930,52)">
+      <rect x="0" y="0" width="128" height="34" rx="10" fill="#ffffff"/>
+      <text x="12" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#10231c">Maize (50kg)</text>
+      <text x="12" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#47635a">Soweto, Lusaka</text>
+      <text x="116" y="15" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#10231c">K340</text>
+      <text x="116" y="28" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#1a8560">+2.4%</text>
+    </g>
+  </g>
+
+  <!-- soft blend between illustration and background -->
+  <rect x="785" y="0" width="60" height="191" fill="url(#bg)" opacity="0.55"/>
+
+  <!-- brand -->
+  <g transform="translate(40,26)">
+    <g transform="scale(0.75)">
+      <rect width="32" height="32" rx="9" fill="#ffffff"/>
+      <path d="M6 19h5l2.5-8 4.5 12 2.5-7H26" fill="none" stroke="#0B3D2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="32" y="17" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">AgriPulse</text>
+  </g>
+
+  <!-- headline -->
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="700">
+    <text x="40" y="86"><tspan fill="#7ee2b8">Daily crop prices.</tspan></text>
+    <text x="40" y="114"><tspan fill="#ffffff">Smarter decisions.</tspan></text>
+    <text x="40" y="142"><tspan fill="#7ee2b8">Better returns.</tspan></text>
+  </g>
+
+  <!-- feature row -->
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#ffffff">
+    <!-- item 1 -->
+    <g transform="translate(310,80)">
+      <g stroke="#7ee2b8" stroke-width="1.8" fill="none" stroke-linecap="round">
+        <path d="M2 20V12M9 20V6M16 20V10M23 20V2"/>
+      </g>
+      <text x="36" y="9" font-weight="600">Daily Market</text>
+      <text x="36" y="22" font-weight="600">Prices</text>
+    </g>
+    <line x1="425" y1="82" x2="425" y2="108" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1"/>
+    <!-- item 2 -->
+    <g transform="translate(452,80)">
+      <g stroke="#7ee2b8" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 21s-8-6.2-8-12a8 8 0 0 1 16 0c0 5.8-8 12-8 12z"/>
+        <circle cx="12" cy="9" r="2.6"/>
+      </g>
+      <text x="36" y="9" font-weight="600">Prices Across</text>
+      <text x="36" y="22" font-weight="600">Multiple Markets</text>
+    </g>
+    <line x1="580" y1="82" x2="580" y2="108" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1"/>
+    <!-- item 3 -->
+    <g transform="translate(607,80)">
+      <g stroke="#7ee2b8" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 18l7-7 4 4 9-10"/>
+        <path d="M15 5h7v7"/>
+      </g>
+      <text x="36" y="9" font-weight="600">Trends &amp; Market</text>
+      <text x="36" y="22" font-weight="600">Insights</text>
+    </g>
+    <line x1="732" y1="82" x2="732" y2="108" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1"/>
+    <!-- item 4 -->
+    <g transform="translate(759,80)">
+      <g stroke="#7ee2b8" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="1" width="14" height="22" rx="3"/>
+        <path d="M9 19.5h4"/>
+      </g>
+      <text x="30" y="9" font-weight="600">Accessible</text>
+      <text x="30" y="22" font-weight="600">Anywhere</text>
+    </g>
+  </g>
+</svg>

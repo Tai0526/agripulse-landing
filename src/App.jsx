@@ -17,7 +17,10 @@ function TickerItem({ item }) {
     <div className="tick">
       <span className="tick-code">{item.code}</span>
       <span className="tick-body">
-        <span className="tick-name">{item.name}</span>
+        <span className="tick-name">
+          {item.name}
+          {item.breed && <span className="tick-breed">{item.breed}</span>}
+        </span>
         <span className="tick-market">{item.market}</span>
       </span>
       <span className="tick-price">{item.price}</span>
@@ -123,7 +126,7 @@ const ROADMAP = [
     phase: 'Coming soon',
     title: 'Prices that come to you',
     points: [
-      'Livestock prices too: cattle, goats, pigs and village chickens',
+      'Livestock prices too: cattle, goats, pigs and chickens, listed by breed, because breed determines price',
       'Price alerts that tell you the moment your crop moves',
       'Watchlists for the crops, animals and markets you care about',
       'Prices delivered on WhatsApp and SMS, where you already chat',
@@ -411,6 +414,10 @@ export default function App() {
               <details>
                 <summary>I don't have a smartphone. Can I still use it?</summary>
                 <p>SMS and USSD access is on our roadmap so any phone can check prices. Join the waitlist and tell us your town. It helps us prioritise.</p>
+              </details>
+              <details>
+                <summary>Do you cover livestock?</summary>
+                <p>Yes. Cattle, goats, pigs and chickens are on the roadmap alongside crops, and always listed with the breed, because a Boer goat and a local goat do not sell for the same money. You'll see the breed next to every animal price.</p>
               </details>
               <details>
                 <summary>How is this different from asking around?</summary>

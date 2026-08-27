@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { TICKER_ROW_1, TICKER_ROW_2 } from './data.js'
 import { joinWaitlist, normalizeZambianPhone } from './waitlist.js'
 import Phone from './Phone.jsx'
+import { CandlePhone, ComparePhone, DetailPhone } from './Screens.jsx'
 import {
   LogoMark, IconLeaf, IconTruck, IconStore, IconEyeOff, IconSwings, IconRoute,
 } from './Icons.jsx'
@@ -172,6 +173,7 @@ export default function App() {
           </a>
           <nav className="nav-links">
             <a href="#how">How it works</a>
+            <a href="#app">Inside the app</a>
             <a href="#coming">What you'll get</a>
             <a href="#faq">FAQ</a>
           </nav>
@@ -263,6 +265,45 @@ export default function App() {
                 <h3>Sell where it pays</h3>
                 <p>Decide with numbers, not rumours. Hold for a week, or load the truck for a better market.</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- INSIDE THE APP ---------- */}
+        <section className="section screens" id="app">
+          <div className="container">
+            <span className="kicker">Inside the app</span>
+            <h2>This is AgriPulse. Not a mockup.</h2>
+            <p className="screens-lede">
+              The app is built and in testing right now. Here is what it actually does:
+              full price analysis per crop, a plain sell-or-hold suggestion, and the
+              profit in moving your goods to a better market.
+            </p>
+            <div className="screens-row">
+              <figure className="screen-item">
+                <DetailPhone />
+                <figcaption>
+                  <strong>Should you sell today?</strong>
+                  Every crop and animal gets a price history chart and a plain
+                  SELL or HOLD suggestion for your market.
+                </figcaption>
+              </figure>
+              <figure className="screen-item">
+                <ComparePhone />
+                <figcaption>
+                  <strong>Where does it pay best?</strong>
+                  Compare markets and see the extra Kwacha per bag before you
+                  load the truck.
+                </figcaption>
+              </figure>
+              <figure className="screen-item">
+                <CandlePhone />
+                <figcaption>
+                  <strong>Go deeper when you want to.</strong>
+                  An in-depth view shows every daily move and the weekly trend,
+                  the way traders read a market.
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>
